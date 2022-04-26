@@ -1,6 +1,0 @@
-project: nanorand-rs
-target: nanorand-rs
-image: ghcr.io/kiranprasad/nanorand-rs:latest
-cmds:
- - cmd: /chacha20
- - cmd: /range
