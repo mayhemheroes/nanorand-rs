@@ -1,0 +1,5 @@
+project: nanorand-rs
+target: chacha20
+
+cmds:
+ - cmd: /chacha20
