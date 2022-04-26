@@ -1,0 +1,5 @@
+project: nanorand-rs
+target: range
+
+cmds:
+ - cmd: /range
