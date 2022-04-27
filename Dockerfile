@@ -12,10 +12,10 @@ RUN ${HOME}/.cargo/bin/cargo install -f cargo-fuzz
 ADD . /nanorand-rs
 WORKDIR /nanorand-rs
 RUN ${HOME}/.cargo/bin/cargo build
-RUN cd fuzz && ${HOME}/.cargo/bin/cargo fuzz build
+RUN cd nanorand-fuzz && ${HOME}/.cargo/bin/cargo fuzz build --fuzz-dir ./
 
 # Package Stage
 FROM ubuntu:20.04
 
-COPY --from=builder nanorand-rs/fuzz/target/x86_64-unknown-linux-gnu/release/chacha20 /
-COPY --from=builder nanorand-rs/fuzz/target/x86_64-unknown-linux-gnu/release/range /
+COPY --from=builder nanorand-rs/nanorand-fuzz/target/x86_64-unknown-linux-gnu/release/chacha20 /
+COPY --from=builder nanorand-rs/nanorand-fuzz/target/x86_64-unknown-linux-gnu/release/range /
